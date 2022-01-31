@@ -12,7 +12,7 @@
         voice: 0
       };
       /**
-       * РќР°С‡Р°С‚СЊ РїРѕРёСЃРє
+       * Начать поиск
        * @param {Object} _object 
        */
 
@@ -42,7 +42,7 @@
         Lampa.Arrays.extend(choice, saved, true);
       };
       /**
-       * РЎР±СЂРѕСЃ С„РёР»СЊС‚СЂР°
+       * Сброс фильтра
        */
 
 
@@ -57,7 +57,7 @@
         component.saveChoice(choice);
       };
       /**
-       * РџСЂРёРјРµРЅРёС‚СЊ С„РёР»СЊС‚СЂ
+       * Применить фильтр
        * @param {*} type 
        * @param {*} a 
        * @param {*} b 
@@ -72,7 +72,7 @@
         component.saveChoice(choice);
       };
       /**
-       * РЈРЅРёС‡С‚РѕР¶РёС‚СЊ
+       * Уничтожить
        */
 
 
@@ -81,7 +81,7 @@
         results = null;
       };
       /**
-       * РЈСЃРїРµС€РЅРѕ, РµСЃС‚СЊ РґР°РЅРЅС‹Рµ
+       * Успешно, есть данные
        * @param {Object} json 
        */
 
@@ -93,7 +93,7 @@
         append(filtred());
       }
       /**
-       * РџРѕР»СѓС‡РёС‚СЊ РїРѕС‚РѕРєРё
+       * Получить потоки
        * @param {String} str 
        * @param {Int} max_quality 
        * @returns string
@@ -120,7 +120,7 @@
         return url;
       }
       /**
-       * РџРѕР»СѓС‡РёС‚СЊ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ С„РёР»СЊРјРµ
+       * Получить информацию о фильме
        * @param {Arrays} results 
        */
 
@@ -189,7 +189,7 @@
         }
       }
       /**
-       * РќР°Р№С‚Рё РїРѕС‚РѕРє
+       * Найти поток
        * @param {Object} element 
        * @param {Int} max_quality
        * @returns string
@@ -249,7 +249,7 @@
         };
       }
       /**
-       * РџРѕСЃС‚СЂРѕРёС‚СЊ С„РёР»СЊС‚СЂ
+       * Построить фильтр
        */
 
 
@@ -264,7 +264,7 @@
             var s = movie.season_count;
 
             while (s--) {
-              filter_items.season.push('РЎРµР·РѕРЅ ' + (movie.season_count - s));
+              filter_items.season.push('Сезон ' + (movie.season_count - s));
             }
           }
 
@@ -286,7 +286,7 @@
         component.filter(filter_items, choice);
       }
       /**
-       * РћС‚С„РёР»СЊС‚СЂРѕРІР°С‚СЊ С„Р°Р№Р»С‹
+       * Отфильтровать файлы
        * @returns array
        */
 
@@ -328,7 +328,7 @@
         return filtred;
       }
       /**
-       * Р”РѕР±Р°РІРёС‚СЊ РІРёРґРµРѕ
+       * Добавить видео
        * @param {Array} items 
        */
 
@@ -336,7 +336,7 @@
       function append(items) {
         component.reset();
         items.forEach(function (element) {
-          if (element.season) element.title = 'S' + element.season + ' / РЎРµСЂРёСЏ ' + element.title;
+          if (element.season) element.title = 'S' + element.season + ' / Серия ' + element.title;
           element.info = element.season ? ' / ' + filter_items.voice[choice.voice] : '';
           var hash = Lampa.Utils.hash(element.season ? [element.season, element.episode, object.movie.original_title].join('') : object.movie.original_title);
           var view = Lampa.Timeline.view(hash);
@@ -374,7 +374,7 @@
               if (playlist.length > 1) first.playlist = playlist;
               Lampa.Player.play(first);
               Lampa.Player.playlist(playlist);
-            } else Lampa.Noty.show('РќРµ СѓРґР°Р»РѕСЃСЊ РёР·РІР»РµС‡СЊ СЃСЃС‹Р»РєСѓ');
+            } else Lampa.Noty.show('Не удалось извлечь ссылку');
           });
           component.append(item);
         });
@@ -395,7 +395,7 @@
         voice: 0
       };
       /**
-       * РџРѕРёСЃРє
+       * Поиск
        * @param {Object} _object 
        */
 
@@ -412,7 +412,7 @@
         Lampa.Arrays.extend(choice, saved, true);
       };
       /**
-       * РЎР±СЂРѕСЃ С„РёР»СЊС‚СЂР°
+       * Сброс фильтра
        */
 
 
@@ -427,7 +427,7 @@
         component.saveChoice(choice);
       };
       /**
-       * РџСЂРёРјРµРЅРёС‚СЊ С„РёР»СЊС‚СЂ
+       * Применить фильтр
        * @param {*} type 
        * @param {*} a 
        * @param {*} b 
@@ -444,7 +444,7 @@
         setTimeout(component.closeFilter, 10);
       };
       /**
-       * РЈРЅРёС‡С‚РѕР¶РёС‚СЊ
+       * Уничтожить
        */
 
 
@@ -495,7 +495,7 @@
         });
       }
       /**
-       * Р—Р°РїСЂРѕСЃРёС‚СЊ С„РёР»СЊРј
+       * Запросить фильм
        * @param {Int} id 
        * @param {String} voice 
        */
@@ -533,7 +533,7 @@
         }
       }
       /**
-       * РџРѕСЃС‚СЂРѕРёС‚СЊ С„РёР»СЊС‚СЂ
+       * Построить фильтр
        */
 
 
@@ -566,7 +566,7 @@
         }
       }
       /**
-       * РџРѕР»СѓС‡РёС‚СЊ РїРѕС‚РѕРє
+       * Получить поток
        * @param {*} element 
        */
 
@@ -590,7 +590,7 @@
             var video = decode(videos[1]),
                 p1080 = '',
                 first = '',
-                mass = ['2160p', '1440p', '1080p Ultra', '1080p', '720p', '480p', '360p']; //СѓС…РЅСЏ С‚СѓС‚ РїСЂРѕРёСЃС…РѕРґРёС‚, С…СЂРµРЅ Р·РЅР°РµС‚ РїРѕС‡РµРјСѓ РїРѕСЃР»Рµ .join() РІРѕР·РІСЂРѕС€Р°РµС‚ С‚РѕР»СЊРєРѕ РїРѕСЃР»РµРґРЅРёСЋ СЃСЃС‹Р»РєСѓ
+                mass = ['2160p', '1440p', '1080p Ultra', '1080p', '720p', '480p', '360p']; //ухня тут происходит, хрен знает почему после .join() возврошает только последнию ссылку
 
             video = video.slice(1).split(/,\[/).map(function (s) {
               return s.split(']')[0] + ']' + (s.indexOf(' or ') > -1 ? s.split('or').pop().trim() : s.split(']').pop());
@@ -693,7 +693,7 @@
       */
 
       /**
-       * РџРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ Рѕ С„РёР»СЊРјРµ
+       * Получить данные о фильме
        * @param {String} str 
        */
 
@@ -744,7 +744,7 @@
         }
       }
       /**
-       * РџРѕРєР°Р·Р°С‚СЊ С„Р°Р№Р»С‹
+       * Показать файлы
        */
 
 
@@ -792,7 +792,7 @@
               Lampa.Player.playlist([first]);
               if (element.subtitles && Lampa.Player.subtitles) Lampa.Player.subtitles(element.subtitles);
             }, function () {
-              Lampa.Noty.show('РќРµ СѓРґР°Р»РѕСЃСЊ РёР·РІР»РµС‡СЊ СЃСЃС‹Р»РєСѓ');
+              Lampa.Noty.show('Не удалось извлечь ссылку');
             });
           });
           component.append(item);
@@ -815,7 +815,7 @@
         quality: -1
       };
       /**
-       * РџРѕРёСЃРє
+       * Поиск
        * @param {Object} _object
        * @param {String} kinopoisk_id
        */
@@ -837,8 +837,8 @@
                   titl = link.attr('title') || link.text();
               if (titl.indexOf(need_year) !== -1) found_url = link.attr('href');
             });
-            if (found_url) getPage(found_url);else component.empty("РќРµ РЅР°С€Р»Рё РїРѕРґС…РѕРґСЏС‰РµРіРѕ РґР»СЏ " + select_title);
-          } else component.empty("РќРµ РЅР°С€Р»Рё " + select_title);
+            if (found_url) getPage(found_url);else component.empty("Не нашли подходящего для " + select_title);
+          } else component.empty("Не нашли " + select_title);
         }, function () {
           component.empty();
         }, false, {
@@ -850,7 +850,7 @@
         Lampa.Arrays.extend(choice, saved, true);
       };
       /**
-       * РЎР±СЂРѕСЃ С„РёР»СЊС‚СЂР°
+       * Сброс фильтра
        */
 
 
@@ -864,7 +864,7 @@
         component.saveChoice(choice);
       };
       /**
-       * РџСЂРёРјРµРЅРёС‚СЊ С„РёР»СЊС‚СЂ
+       * Применить фильтр
        * @param {*} type
        * @param {*} a
        * @param {*} b
@@ -879,7 +879,7 @@
         component.saveChoice(choice);
       };
       /**
-       * РЈРЅРёС‡С‚РѕР¶РёС‚СЊ
+       * Уничтожить
        */
 
 
@@ -954,7 +954,7 @@
         return subtitles.length ? subtitles : false;
       }
       /**
-       * РџРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ Рѕ С„РёР»СЊРјРµ
+       * Получить данные о фильме
        * @param {String} str
        */
 
@@ -1044,7 +1044,7 @@
         return element.stream;
       }
       /**
-       * РџРѕРєР°Р·Р°С‚СЊ С„Р°Р№Р»С‹
+       * Показать файлы
        */
 
 
@@ -1090,7 +1090,7 @@
               if (playlist.length > 1) first.playlist = playlist;
               Lampa.Player.play(first);
               Lampa.Player.playlist(playlist);
-            } else Lampa.Noty.show('РќРµ СѓРґР°Р»РѕСЃСЊ РёР·РІР»РµС‡СЊ СЃСЃС‹Р»РєСѓ');
+            } else Lampa.Noty.show('Не удалось извлечь ссылку');
           });
           component.append(item);
         });
@@ -1111,7 +1111,7 @@
         voice: 0
       };
       /**
-       * РџРѕРёСЃРє
+       * Поиск
        * @param {Object} _object 
        */
 
@@ -1123,7 +1123,7 @@
         network.silent(url, function (str) {
           if (str) {
             parse(str);
-          } else component.empty("РќРµ РЅР°С€Р»Рё " + select_title);
+          } else component.empty("Не нашли " + select_title);
 
           component.loading(false);
         }, function () {
@@ -1137,7 +1137,7 @@
         Lampa.Arrays.extend(choice, saved, true);
       };
       /**
-       * РЎР±СЂРѕСЃ С„РёР»СЊС‚СЂР°
+       * Сброс фильтра
        */
 
 
@@ -1152,7 +1152,7 @@
         component.saveChoice(choice);
       };
       /**
-       * РџСЂРёРјРµРЅРёС‚СЊ С„РёР»СЊС‚СЂ
+       * Применить фильтр
        * @param {*} type 
        * @param {*} a 
        * @param {*} b 
@@ -1167,7 +1167,7 @@
         component.saveChoice(choice);
       };
       /**
-       * РЈРЅРёС‡С‚РѕР¶РёС‚СЊ
+       * Уничтожить
        */
 
 
@@ -1191,11 +1191,11 @@
             extract = json;
             filter();
             append(filtred());
-          } else component.empty("РќРµ РЅР°С€Р»Рё " + select_title);
+          } else component.empty("Не нашли " + select_title);
         }
       }
       /**
-       * РџРѕСЃС‚СЂРѕРёС‚СЊ С„РёР»СЊС‚СЂ
+       * Построить фильтр
        */
 
 
@@ -1209,7 +1209,7 @@
         if (extract.playlist) {
           if (extract.playlist.seasons) {
             extract.playlist.seasons.forEach(function (season) {
-              filter_items.season.push('РЎРµР·РѕРЅ ' + season.season);
+              filter_items.season.push('Сезон ' + season.season);
             });
           }
         }
@@ -1217,7 +1217,7 @@
         component.filter(filter_items, choice);
       }
       /**
-       * РћС‚С„РёР»СЊС‚СЂРѕРІР°С‚СЊ С„Р°Р№Р»С‹
+       * Отфильтровать файлы
        * @returns array
        */
 
@@ -1265,7 +1265,7 @@
         return filtred;
       }
       /**
-       * РџРѕРєР°Р·Р°С‚СЊ С„Р°Р№Р»С‹
+       * Показать файлы
        */
 
 
@@ -1305,7 +1305,7 @@
               if (playlist.length > 1) first.playlist = playlist;
               Lampa.Player.play(first);
               Lampa.Player.playlist(playlist);
-            } else Lampa.Noty.show('РќРµ СѓРґР°Р»РѕСЃСЊ РёР·РІР»РµС‡СЊ СЃСЃС‹Р»РєСѓ');
+            } else Lampa.Noty.show('Не удалось извлечь ссылку');
           });
           component.append(item);
         });
@@ -1333,11 +1333,11 @@
       var extended;
       var selected_id;
       var filter_translate = {
-        season: 'РЎРµР·РѕРЅ',
-        voice: 'РџРµСЂРµРІРѕРґ',
-        source: 'РСЃС‚РѕС‡РЅРёРє'
+        season: 'Сезон',
+        voice: 'Перевод',
+        source: 'Источник'
       };
-      var filter_sources = ['videocdn', 'rezka', 'kinobase', 'collaps']; // С€Р°Р»РѕРІР»РёРІС‹Рµ СЂСѓС‡РєРё
+      var filter_sources = ['videocdn', 'rezka', 'kinobase', 'collaps']; // шаловливые ручки
 
       if (filter_sources.indexOf(balanser) == -1) {
         balanser = 'videocdn';
@@ -1347,7 +1347,7 @@
       scroll.minus();
       scroll.body().addClass('torrent-list');
       /**
-       * РџРѕРґРіРѕС‚РѕРІРєР°
+       * Подготовка
        */
 
       this.create = function () {
@@ -1398,7 +1398,7 @@
         return this.render();
       };
       /**
-       * РќР°С‡Р°С‚СЊ РїРѕРёСЃРє
+       * Начать поиск
        */
 
 
@@ -1441,7 +1441,7 @@
 
               _this2.loading(false);
             }
-          } else _this2.empty('РџРѕ Р·Р°РїСЂРѕСЃСѓ (' + query + ') РЅРµС‚ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ');
+          } else _this2.empty('По запросу (' + query + ') нет результатов');
         };
 
         network.silent(url, display.bind(this), function (a, c) {
@@ -1477,7 +1477,7 @@
         Lampa.Storage.set('online_choice_' + balanser, data);
       };
       /**
-       * Р•СЃС‚СЊ РїРѕС…РѕР¶РёРµ РєР°СЂС‚РѕС‡РєРё
+       * Есть похожие карточки
        * @param {Object} json 
        */
 
@@ -1508,7 +1508,7 @@
         });
       };
       /**
-       * РћС‡РёСЃС‚РёС‚СЊ СЃРїРёСЃРѕРє С„Р°Р№Р»РѕРІ
+       * Очистить список файлов
        */
 
 
@@ -1520,7 +1520,7 @@
         scroll.append(filter.render());
       };
       /**
-       * Р—Р°РіСЂСѓР·РєР°
+       * Загрузка
        */
 
 
@@ -1531,7 +1531,7 @@
         }
       };
       /**
-       * РџРѕСЃС‚СЂРѕРёС‚СЊ С„РёР»СЊС‚СЂ
+       * Построить фильтр
        */
 
 
@@ -1561,18 +1561,18 @@
         filter_items.source = filter_sources;
         choice.source = filter_sources.indexOf(balanser);
         select.push({
-          title: 'РЎР±СЂРѕСЃРёС‚СЊ С„РёР»СЊС‚СЂ',
+          title: 'Сбросить фильтр',
           reset: true
         });
         Lampa.Storage.set('online_filter', choice);
-        if (filter_items.voice && filter_items.voice.length) add('voice', 'РџРµСЂРµРІРѕРґ');
-        if (filter_items.season && filter_items.season.length) add('season', 'РЎРµР·РѕРЅ');
-        add('source', 'РСЃС‚РѕС‡РЅРёРє');
+        if (filter_items.voice && filter_items.voice.length) add('voice', 'Перевод');
+        if (filter_items.season && filter_items.season.length) add('season', 'Сезон');
+        add('source', 'Источник');
         filter.set('filter', select);
         this.selected(filter_items);
       };
       /**
-       * Р—Р°РєСЂС‹С‚СЊ С„РёР»СЊС‚СЂ
+       * Закрыть фильтр
        */
 
 
@@ -1580,7 +1580,7 @@
         if ($('body').hasClass('selectbox--open')) Lampa.Select.close();
       };
       /**
-       * РџРѕРєР°Р·Р°С‚СЊ С‡С‚Рѕ РІС‹Р±СЂР°РЅРѕ РІ С„РёР»СЊС‚СЂРµ
+       * Показать что выбрано в фильтре
        */
 
 
@@ -1603,7 +1603,7 @@
         filter.chosen('filter', select);
       };
       /**
-       * Р”РѕР±Р°РІРёС‚СЊ С„Р°Р№Р»
+       * Добавить файл
        */
 
 
@@ -1615,7 +1615,7 @@
         scroll.append(item);
       };
       /**
-       * РџРѕРєР°Р·Р°С‚СЊ РїСѓСЃС‚РѕР№ СЂРµР·СѓР»СЊС‚Р°С‚
+       * Показать пустой результат
        */
 
 
@@ -1626,7 +1626,7 @@
         this.loading(false);
       };
       /**
-       * РќР°С‡Р°С‚СЊ РЅР°РІРёРіР°С†РёСЋ РїРѕ С„Р°Р№Р»Р°Рј
+       * Начать навигацию по файлам
        */
 
 
@@ -1651,7 +1651,7 @@
             Navigator.move('down');
           },
           right: function right() {
-            if (Navigator.canmove('right')) Navigator.move('right');else filter.show('Р¤РёР»СЊС‚СЂ', 'filter');
+            if (Navigator.canmove('right')) Navigator.move('right');else filter.show('Фильтр', 'filter');
           },
           left: function left() {
             if (Navigator.canmove('left')) Navigator.move('left');else Lampa.Controller.toggle('menu');
@@ -1690,9 +1690,9 @@
       Lampa.Template.add('online_folder', "<div class=\"online selector\">\n        <div class=\"online__body\">\n            <div style=\"position: absolute;left: 0;top: -0.3em;width: 2.4em;height: 2.4em\">\n                <svg style=\"height: 2.4em; width:  2.4em;\" viewBox=\"0 0 128 112\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                    <rect y=\"20\" width=\"128\" height=\"92\" rx=\"13\" fill=\"white\"/>\n                    <path d=\"M29.9963 8H98.0037C96.0446 3.3021 91.4079 0 86 0H42C36.5921 0 31.9555 3.3021 29.9963 8Z\" fill=\"white\" fill-opacity=\"0.23\"/>\n                    <rect x=\"11\" y=\"8\" width=\"106\" height=\"76\" rx=\"13\" fill=\"white\" fill-opacity=\"0.51\"/>\n                </svg>\n            </div>\n            <div class=\"online__title\" style=\"padding-left: 2.1em;\">{title}</div>\n            <div class=\"online__quality\" style=\"padding-left: 3.4em;\">{quality}{info}</div>\n        </div>\n    </div>");
     }
 
-    var button = "<div class=\"full-start__button selector view--online\" data-subtitle=\"\u041E\u0440\u0438\u0433\u0438\u043D\u0430\u043B \u0441 pastebin v1.36\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 30.051 30.051\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n    <g xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M19.982,14.438l-6.24-4.536c-0.229-0.166-0.533-0.191-0.784-0.062c-0.253,0.128-0.411,0.388-0.411,0.669v9.069   c0,0.284,0.158,0.543,0.411,0.671c0.107,0.054,0.224,0.081,0.342,0.081c0.154,0,0.31-0.049,0.442-0.146l6.24-4.532   c0.197-0.145,0.312-0.369,0.312-0.607C20.295,14.803,20.177,14.58,19.982,14.438z\" fill=\"currentColor\"/>\n        <path d=\"M15.026,0.002C6.726,0.002,0,6.728,0,15.028c0,8.297,6.726,15.021,15.026,15.021c8.298,0,15.025-6.725,15.025-15.021   C30.052,6.728,23.324,0.002,15.026,0.002z M15.026,27.542c-6.912,0-12.516-5.601-12.516-12.514c0-6.91,5.604-12.518,12.516-12.518   c6.911,0,12.514,5.607,12.514,12.518C27.541,21.941,21.937,27.542,15.026,27.542z\" fill=\"currentColor\"/>\n    </g></svg>\n\n    <span>\u041E\u043D\u043B\u0430\u0439\u043D</span>\n    </div>"; // РЅСѓР¶РЅР° Р·Р°РіР»СѓС€РєР°, Р° С‚Рѕ РїСЂРё СЃС‚СЂР°С‚Рµ Р»Р°РјРїС‹ РіРѕРІРѕСЂРёС‚ РїСѓСЃС‚Рѕ
+    var button = "<div class=\"full-start__button selector view--online\" data-subtitle=\"\u041E\u0440\u0438\u0433\u0438\u043D\u0430\u043B \u0441 pastebin v1.36\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:svgjs=\"http://svgjs.com/svgjs\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 30.051 30.051\" style=\"enable-background:new 0 0 512 512\" xml:space=\"preserve\" class=\"\">\n    <g xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M19.982,14.438l-6.24-4.536c-0.229-0.166-0.533-0.191-0.784-0.062c-0.253,0.128-0.411,0.388-0.411,0.669v9.069   c0,0.284,0.158,0.543,0.411,0.671c0.107,0.054,0.224,0.081,0.342,0.081c0.154,0,0.31-0.049,0.442-0.146l6.24-4.532   c0.197-0.145,0.312-0.369,0.312-0.607C20.295,14.803,20.177,14.58,19.982,14.438z\" fill=\"currentColor\"/>\n        <path d=\"M15.026,0.002C6.726,0.002,0,6.728,0,15.028c0,8.297,6.726,15.021,15.026,15.021c8.298,0,15.025-6.725,15.025-15.021   C30.052,6.728,23.324,0.002,15.026,0.002z M15.026,27.542c-6.912,0-12.516-5.601-12.516-12.514c0-6.91,5.604-12.518,12.516-12.518   c6.911,0,12.514,5.607,12.514,12.518C27.541,21.941,21.937,27.542,15.026,27.542z\" fill=\"currentColor\"/>\n    </g></svg>\n\n    <span>\u041E\u043D\u043B\u0430\u0439\u043D</span>\n    </div>"; // нужна заглушка, а то при страте лампы говорит пусто
 
-    Lampa.Component.add('online', component); //С‚Рѕ Р¶Рµ СЃР°РјРѕРµ
+    Lampa.Component.add('online', component); //то же самое
 
     resetTemplates();
     Lampa.Listener.follow('full', function (e) {
@@ -1703,7 +1703,7 @@
           Lampa.Component.add('online', component);
           Lampa.Activity.push({
             url: '',
-            title: 'РћРЅР»Р°Р№РЅ',
+            title: 'Онлайн',
             component: 'online',
             search: e.data.movie.title,
             search_one: e.data.movie.title,
